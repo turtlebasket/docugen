@@ -1,0 +1,3 @@
+OPENAI_API_KEY: xyz123
+Authorization: Bearer xyz123
+session_token: (from browser)
