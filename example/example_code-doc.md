@@ -1,101 +1,94 @@
 # Documentation for `example/example_code.py`
 
-## `remove_dirt(image)`
-This function removes small elements from an image using area closing morphological operation.
+### `remove_dirt(image)`
+The `remove_dirt` function removes small objects from the input image using area closing. Here is an example of how to use the `remove_dirt` function:
 
-Example:
+```python
+import skimage.morphology as morphology
 
-```
-# Import the required module
-from skimage import morphology
+# Load an image using some library (e.g. Pillow, OpenCV, etc.)
+image = ...
 
-# Load the image
-image = skimage.io.imread('image.jpg')
-
-# Apply the function to remove small elements from the image
+# Remove small objects from the image
 image = remove_dirt(image)
-
-# Show the result
-skimage.io.imshow(image)
 ```
 
-## `calculate_area(countour)`
-This function calculates the area of a contour in an image.
 
-Example:
+### `calculate_area(countour)`
+The `calculate_area` function calculates the area of a contour in an image using OpenCV. Here is an example of how to use the `calculate_area` function:
 
-```
-# Import the required modules
-import cv2 as cv
+```python
 import numpy as np
+import cv2 as cv
 
-# Load the image and find the contours
-image = cv.imread('image.jpg')
-contours, _ = cv.findContours(image, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+# Load an image using some library (e.g. Pillow, OpenCV, etc.)
+image = ...
 
-# Iterate over the contours and calculate their areas
+# Find contours in the image using OpenCV
+contours = cv.findContours(image, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
+
+# Calculate the area of each contour
 for contour in contours:
     area = calculate_area(contour)
-    print('Area of contour:', area)
+    print(area)
 ```
 
-## `center_of_mass(X)`
-This function calculates the center of mass of a set of points.
 
-Example:
+### `center_of_mass(X)`
+The `center_of_mass` function calculates the center of mass of a 2D shape defined by a set of points. Here is an example of how to use the `center_of_mass` function:
 
-```
+```python
 import numpy as np
 
-# Define a set of points
-X = np.array([[1,2], [3,4], [5,6]])
+# Define a set of points that define a shape
+X = np.array([[0,0], [0,1], [1,1], [1,0]])
 
-# Calculate the center of mass of the points
-center = center_of_mass(X)
+# Calculate the center of mass of the shape
+com = center_of_mass(X)
 
-# Print the result
-print('Center of mass:', center)
+# Print the center of mass
+print(com)
 ```
 
-The output will be `Center of mass: [3. 4.]`.
+In this example, the output would be `[0.5, 0.5]`, which is the center of the square defined by the points `X`.
 
-## `center_of_mass(X)`
-This function calculates the center of mass of a set of points.
 
-Example:
+### `center_of_mass(X)`
+The `center_of_mass` function calculates the center of mass of a 2D shape defined by a set of points. Here is an example of how to use the `center_of_mass` function:
 
-```
+```python
 import numpy as np
 
-# Define a set of points
-X = np.array([[1,2], [3,4], [5,6]])
+# Define a set of points that define a shape
+X = np.array([[0,0], [0,1], [1,1], [1,0]])
 
-# Calculate the center of mass of the points
-center = center_of_mass(X)
+# Calculate the center of mass of the shape
+com = center_of_mass(X)
 
-# Print the result
-print('Center of mass:', center)
+# Print the center of mass
+print(com)
 ```
 
-The output will be `Center of mass: [3. 4.]`.
+In this example, the output would be `[0.5, 0.5]`, which is the center of the square defined by the points `X`.
 
-## `rg_ratio_normalize(imgarr)`
-This function normalizes the temperature values in an image array using the RG ratio and a pyrometry calibration formula.
 
-Example:
+### `rg_ratio_normalize(imgarr)`
+The `rg_ratio_normalize` function applies a normalization function to the red and green channels of a 2D image, then applies a camera calibration formula to the resulting normalized values and returns the resulting image. Here is an example of how to use the `rg_ratio_normalize` function:
 
-```
-# Import the required modules
+```python
 import numpy as np
 
-# Load the image array
-imgarr = np.array(...)
+# Load an image using some library (e.g. Pillow, OpenCV, etc.)
+image = ...
 
-# Normalize the temperature values in the image
+# Convert the image to a NumPy array
+imgarr = np.array(image)
+
+# Apply the normalization and calibration to the image
 imgnew, tmin, tmax = rg_ratio_normalize(imgarr)
 
-# Print the resulting minimum and maximum temperature values
-print('Minimum temperature:', tmin)
-print('Maximum temperature:', tmax)
+# Print the minimum and maximum temperature values in the image
+print(tmin, tmax)
 ```
+
 
