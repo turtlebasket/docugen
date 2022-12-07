@@ -299,11 +299,11 @@
         },
         "revchatgpt": {
             "hashes": [
-                "sha256:36860b0297d5e846172c2fcfcdf27b4f19b80eac299b4e00c93a5dccf27f18c1",
-                "sha256:3fce7e348a8817e4335130a9ab2e523633c8c49cad1d2ca577571aeaa4a00115"
+                "sha256:6217e51914300123bc01f1519de68eeece8bdca0aa68bca71e540d293cbbc23c",
+                "sha256:fcebca9815761b6fcb5abbfb8b28bbee810d2a01fc148c19429066818a29d933"
             ],
             "index": "pypi",
-            "version": "==0.0.23.5"
+            "version": "==0.0.30"
         },
         "six": {
             "hashes": [

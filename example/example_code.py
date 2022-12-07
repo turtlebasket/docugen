@@ -4,11 +4,13 @@ def remove_dirt(image):
 
     return image
 
+
 def calculate_area(countour):
     c = np.expand_dims(countour.astype(np.float32), 1)
     c = cv.UMat(c)
-    
+   
     return cv.contourArea(c)
+
 
 def center_of_mass(X):
     x = X[:,0]
@@ -21,6 +23,7 @@ def center_of_mass(X):
     return 1./(6*A)*np.array([cx,cy])
 
 img = remove_dirt(thresh_gray)
+
 
 def rg_ratio_normalize(imgarr):
     # set max & min to most extreme values, 
